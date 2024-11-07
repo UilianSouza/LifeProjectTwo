@@ -26,7 +26,9 @@ export default function LoginScreen() {
         />
 
         <Link href="/home" style={styles.loginButton}>
-          <Text style={styles.loginButtonText}>Entrar</Text>
+          <View style={styles.loginButtonContent}>
+            <Text style={styles.loginButtonText}>Entrar</Text>
+          </View>
         </Link>
 
         <Link href='../recuperar' style={styles.forgotPassword}>
@@ -58,7 +60,7 @@ const styles = StyleSheet.create({
     shadowOffset: { width: 0, height: 5 },
     shadowOpacity: 0.3,
     shadowRadius: 10,
-    elevation: 8, // Para sombra no Android
+    elevation: 8,
     alignItems: 'center',
   },
   appName: {
@@ -81,10 +83,14 @@ const styles = StyleSheet.create({
     borderRadius: 8,
     alignItems: 'center',
     justifyContent: 'center',
-    width: '90%',
-    alignSelf: 'center',
-    paddingVertical: 15,
     marginVertical: 15,
+    width: '90%',
+  },
+  loginButtonContent: {
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingVertical: 15,
+    width: '100%',
   },
   loginButtonText: {
     color: '#fff',
@@ -107,6 +113,7 @@ const styles = StyleSheet.create({
     textDecorationLine: 'underline',
   },
 });
+
 
 
 
