@@ -1,10 +1,19 @@
 import React, { useState } from 'react';
-import { View, Text, TextInput, StyleSheet } from 'react-native';
+import { View, Text, TextInput, StyleSheet, Alert, TouchableOpacity } from 'react-native';
 import { Link } from 'expo-router';
 
 export default function LoginScreen() {
   const [username, setUsername] = useState('');
   const [password, setPassword] = useState('');
+
+  const handleLogin = () => {
+    if (username && password) {
+      // Navega para a tela 'home' apenas se ambos os campos estiverem preenchidos
+      Alert.alert("Login realizado com sucesso!");
+    } else {
+      Alert.alert('AVISO', 'Por favor, preencha ambos os campos para continuar.');
+    }
+  };
 
   return (
     <View style={styles.container}>
@@ -25,11 +34,11 @@ export default function LoginScreen() {
           secureTextEntry
         />
 
-        <Link href="/home" style={styles.loginButton}>
+        <TouchableOpacity onPress={handleLogin} style={styles.loginButton}>
           <View style={styles.loginButtonContent}>
             <Text style={styles.loginButtonText}>Entrar</Text>
           </View>
-        </Link>
+        </TouchableOpacity>
 
         <Link href='../recuperar' style={styles.forgotPassword}>
           <Text style={styles.forgotPasswordText}>Esqueceu a senha?</Text>
@@ -113,9 +122,3 @@ const styles = StyleSheet.create({
     textDecorationLine: 'underline',
   },
 });
-
-
-
-
-
-
